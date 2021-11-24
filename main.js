@@ -46,8 +46,7 @@ let ul = document.querySelector('.ul-addedTask');
 /* botões click para adcionar uma tarefa */
 BtnAdd.addEventListener('click', function () {
     function GetNameTask() {
-        let name = document.querySelector('.input-addTask').value;
-        alert(name.length);
+        let name = document.querySelector('.input-addTask').value.trim();
         if (name.length > 10) {
             name = name.slice(0, 10);
             name += '...';
@@ -105,8 +104,7 @@ TimeAdd.addEventListener('keypress', function (e) {
     switch (e.keyCode) {
         case 13:
             function GetNameTask() {
-                let name = document.querySelector('.input-addTask').value;
-                alert(name.length);
+                let name = document.querySelector('.input-addTask').value.trim();
                 if (name.length > 10) {
                     name = name.slice(0, 10);
                     name += '...';
