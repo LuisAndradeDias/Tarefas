@@ -1,38 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/img/imc-fav.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Tarefas</title>
 </head>
 
-<body>
-    <div class="sub-container">
-        <section class="container">
-            <div>
-                <form action="">
-                    <div class="input-container">
-                        <input type="text" class="input-task" id="input-task" placeholder="Tarefa" pattern=".+"
-                            required />
-                        <label class="label" for="input-task"></label>
-                    </div>
-                </form>
-                <br>
-                <button class="btn-tasks btn">Adcionar tarefa</button><br><br>
+<body class="back-black">
+    <input type="checkbox" class="check">
+    <div class="div-new">
+        <button class="btn-new-close btn color btn-color" onclick="document.querySelector('.check').checked = false">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <div class="sub-div-new">
+            <input type="text" name="input-addTask" class="input-addTask color" placeholder="Adicione uma nova tarefa">
+            <div class="div-new-add">
+                <label for="time-new" class="color">Horário: <input type="time" name="time-new" id="time-new"
+                        class="time-new color btn-color"></label>
+                <button class="btn-new btn color btn-color">Adcionar</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section class="sub-container">
+            <div class="addTask">
+                <button class="btn-addTask btn color btn-color">Adcionar
+                    Tarefa</button>
+                <button class="button-theme theme btn color btn-color">
+                    <ion-icon class="sun-theme-icon theme" name="sunny-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="addedTask">
+                <ul class="ul-addedTask color">
+                    <!-- <li>Tomar café<p>6:54</p><button class="btn color btn-color">Apagar</button></li> -->
+                </ul>
+            </div>
         </section>
     </div>
-    <div class="sub-container">
-        <section class="container container-tasks">
-            <h1>Tarefas</h1>
-            <ul class="tasks">
-            </ul>
-        </section>
-    </div>
-    <script src="main2.js"></script>
+    <script src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>
