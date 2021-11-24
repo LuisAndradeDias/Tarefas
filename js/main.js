@@ -23,6 +23,8 @@ function ScopoTheme() {
     });
 }
 ScopoTheme()
+
+
 /* função para abrir o adicionar tarefas */
 function ScopoNewTask() {
     let BtnopenNew = document.querySelector('.btn-addTask');
@@ -36,6 +38,7 @@ function ScopoNewTask() {
 }
 ScopoNewTask()
 
+
 /* puxa html */
 let BtnAdd = document.querySelector('.btn-new');
 let InputAdd = document.querySelector('.input-addTask');
@@ -43,8 +46,8 @@ let TimeAdd = document.querySelector('.time-new ');
 let ul = document.querySelector('.ul-addedTask');
 
 
-/* botões click para adcionar uma tarefa */
-BtnAdd.addEventListener('click', function () {
+/* função que adciona uma tarefa nova */
+function addTask() {
     function GetNameTask() {
         let name = document.querySelector('.input-addTask').value.trim();
         if (name.length > 10) {
@@ -60,7 +63,6 @@ BtnAdd.addEventListener('click', function () {
 
     let NameTask = GetNameTask()
     let DateTask = GetDateTask();
-
 
     if (NameTask) {
         if (DateTask) {
@@ -90,6 +92,12 @@ BtnAdd.addEventListener('click', function () {
         } else return alert('Insira uma data correta');
     } else return alert('Insira o nome da tarefa');
 
+}
+
+
+/* botões click para adcionar uma tarefa */
+BtnAdd.addEventListener('click', function () {
+    addTask()
 });
 InputAdd.addEventListener('keypress', function (e) {
     switch (e.keyCode) {
@@ -103,50 +111,7 @@ InputAdd.addEventListener('keypress', function (e) {
 TimeAdd.addEventListener('keypress', function (e) {
     switch (e.keyCode) {
         case 13:
-            function GetNameTask() {
-                let name = document.querySelector('.input-addTask').value.trim();
-                if (name.length > 10) {
-                    name = name.slice(0, 10);
-                    name += '...';
-                }
-                return name;
-            }
-            function GetDateTask() {
-                let date = document.querySelector('.time-new ').value;
-                return date
-            }
-
-            let NameTask = GetNameTask()
-            let DateTask = GetDateTask();
-
-
-            if (NameTask) {
-                if (DateTask) {
-                    let li = document.createElement('li');
-                    let pName = document.createElement('p');
-                    let pDate = document.createElement('p');
-                    let button = document.createElement('button');
-
-                    pName.innerText = NameTask;
-                    pDate.innerText = DateTask;
-
-                    button.innerText = 'Apagar';
-                    button.setAttribute('class', 'RemoveTask btn color btn-color');
-
-                    pName.setAttribute('class', 'p-name');
-                    pDate.setAttribute('class', 'p-date');
-
-                    li.appendChild(pName);
-                    li.appendChild(pDate);
-                    li.appendChild(button);
-                    ul.appendChild(li);
-                    InputAdd.value = '';
-                    TimeAdd.value = '';
-                    document.querySelector('.check').checked = false;
-                    addMemoryName();
-                    addMemoryDate();
-                } else return alert('Insira uma data correta');
-            } else return alert('Insira o nome da tarefa');
+            addTask();
             break;
         default:
             break;
